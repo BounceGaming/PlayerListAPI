@@ -38,6 +38,26 @@ namespace PlayerList.Wrapper
         public async Task<bool> CreatePlayerPlayerAsync(Player player)
             => (await CreateRequestAsync("playerlist", HttpMethodType.Put, player)).StatusCode == HttpStatusCode.OK;
 
+        public bool DeleteAllPlayers()
+        {
+            var players = GetPlayers();
+            if (players.Count == 0)
+                return false;
+            foreach (var player in players)
+                DeletePlayer(player);
+            return true;
+        }
+        
+        public async Task<bool> DeleteAllPlayersAsync()
+        {
+            var players = await GetPlayersAsync();
+            if (players.Count == 0)
+                return false;
+            foreach (var player in players)
+                await DeletePlayerAsync(player);
+            return true;
+        }
+
         private (HttpStatusCode StatusCode, T? Response) CreateRequest<T>(string url, string method, object? input = null) where T : class
         {
             var request = (HttpWebRequest)WebRequest.Create($"{_baseUrl}/{url}");
