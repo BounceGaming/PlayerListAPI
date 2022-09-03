@@ -11,6 +11,9 @@ You can use this solution for:
 - Install the plugin inside ``.config/EXILED/Plugins`` and the dependency inside ``.config/EXILED/Plugins/dependencies``.
 - Create a new folder and decompress the API.tar.gz inside of it, if you're running it on Linux use ``chmod +x ./PlayerList.API`` to give execution permissions, then run it with ./PlayerList.API, the default ports that the API will be using are: 5000 (non-HTTPS) and 5001 (HTTPS), you can change those using ``./PlayerList.API --urls="http:*:PORT_HERE"``. The API will use LiteDB to store the Player List by default, if you want to change this to use MySQL/MariaDB, please read [this](https://github.com/BounceGaming/PlayerListAPI/blob/main/README.md#Configuration).
 
+# Installation (Cloud, not self-hosted)
+_Coming soon_
+
 # Configuration
 
 ### Plugin
