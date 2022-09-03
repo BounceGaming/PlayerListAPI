@@ -1,4 +1,5 @@
 ﻿using LinqToDB;
+using LinqToDB.Data;
 using PlayerList.API.Interfaces;
 using PlayerList.API.Services.DatabaseControllers;
 
@@ -7,14 +8,11 @@ namespace PlayerList.API.Services;
 public class GenericDatabaseManager
 {
     private readonly LiteDbController _liteDbController;
-    private readonly MySqlController _mySqlController;
     public readonly bool UseLiteDb;
 
-    public GenericDatabaseManager(LiteDbController liteDbController, MySqlController mySqlController,
-        IConfiguration configuration)
+    public GenericDatabaseManager(LiteDbController liteDbController, IConfiguration configuration)
     {
         _liteDbController = liteDbController;
-        _mySqlController = mySqlController;
         UseLiteDb = configuration["Db:Method"] == "LiteDB";
     }
 
@@ -29,7 +27,7 @@ public class GenericDatabaseManager
             return true;
         }
 
-        using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
+        using var db = new DataConnection();
         return db.Insert(player) > 0;
     }
 
@@ -43,7 +41,7 @@ public class GenericDatabaseManager
             return result > 0;
         }
 
-        using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
+        using var db = new DataConnection();
         return db.Delete(player) > 0;
     }
 
@@ -54,7 +52,7 @@ public class GenericDatabaseManager
             players = _liteDbController.Database.GetCollection<Player>().FindAll();
         else
         {
-            using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
+            using var db = new DataConnection();
             players = db.GetTable<Player>().AsEnumerable();
         }
 

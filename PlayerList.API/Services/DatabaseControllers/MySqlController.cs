@@ -24,15 +24,6 @@ public class MySqlController
     }
 }
 
-public class MySqlDataConnection : DataConnection
-{
-    public MySqlDataConnection(string connectionString) : base(connectionString)
-    {
-    }
-
-    public ITable<Player> Player => this.GetTable<Player>();
-}
-
 public class DbSettings : ILinqToDBSettings
 {
     private readonly IConfiguration _configuration;
