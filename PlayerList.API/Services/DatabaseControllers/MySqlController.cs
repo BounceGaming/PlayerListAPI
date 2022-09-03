@@ -20,7 +20,14 @@ public class MySqlController
     public void CreateDatabase()
     {
         using var db = new DataConnection();
-        db.CreateTable<Player>();
+        try
+        {
+            _ = db.GetTable<Player>().Any();
+        }
+        catch
+        {
+            db.CreateTable<Player>();
+        }
     }
 }
 

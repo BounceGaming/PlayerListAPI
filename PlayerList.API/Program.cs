@@ -2,6 +2,7 @@ using PlayerList.API.Services;
 using PlayerList.API.Services.DatabaseControllers;
 using Serilog;
 
+Console.Title = "PlayerList.API v1.0.0";
 const string splash = "  ____                              _____                 _             \n" +
                       " |  _ \\                            / ____|               (_)            \n" +
                       " | |_) | ___  _   _ _ __   ___ ___| |  __  __ _ _ __ ___  _ _ __   __ _ \n" +
