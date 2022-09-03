@@ -1,0 +1,4 @@
+C:\Users\roger\RiderProjects\PlayerList\PlayerList.API\bin\Release\net6.0\win-x86\publish\appsettings.Development.json
+C:\Users\roger\RiderProjects\PlayerList\PlayerList.API\bin\Release\net6.0\win-x86\publish\appsettings.json
+C:\Users\roger\RiderProjects\PlayerList\PlayerList.API\bin\Release\net6.0\win-x86\publish\PlayerList.API.pdb
+C:\Users\roger\RiderProjects\PlayerList\PlayerList.API\bin\Release\net6.0\win-x86\publish\PlayerList.API.exe
