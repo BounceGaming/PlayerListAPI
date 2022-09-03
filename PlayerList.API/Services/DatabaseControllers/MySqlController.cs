@@ -9,15 +9,19 @@ public class MySqlController
 {
     public MySqlController(IConfiguration configuration)
     {
-        if (configuration["Db:Method"] == "LiteDB")
+        if (configuration["Db:Method"] != "MySQL")
             return;
         DataConnection.DefaultSettings = new DbSettings(configuration);
         ConnectionString = DataConnection.DefaultSettings.ConnectionStrings.FirstOrDefault()!.ConnectionString;
-        using var db = new MySqlDataConnection(ConnectionString);
-        db.CreateTable<Player>();
     }
 
     public string ConnectionString { get; }
+    
+    public void CreateDatabase()
+    {
+        using var db = new DataConnection();
+        db.CreateTable<Player>();
+    }
 }
 
 public class MySqlDataConnection : DataConnection

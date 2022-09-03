@@ -8,19 +8,19 @@ public class GenericDatabaseManager
 {
     private readonly LiteDbController _liteDbController;
     private readonly MySqlController _mySqlController;
-    private readonly bool _useLiteDb;
+    public readonly bool UseLiteDb;
 
     public GenericDatabaseManager(LiteDbController liteDbController, MySqlController mySqlController,
         IConfiguration configuration)
     {
         _liteDbController = liteDbController;
         _mySqlController = mySqlController;
-        _useLiteDb = configuration["Db:Method"] == "LiteDB";
+        UseLiteDb = configuration["Db:Method"] == "LiteDB";
     }
 
     public bool AddPlayer(Player player)
     {
-        if (_useLiteDb)
+        if (UseLiteDb)
         {
             if (_liteDbController.Database.GetCollection<Player>().Exists(x => player == x))
                 return false;
@@ -35,7 +35,7 @@ public class GenericDatabaseManager
 
     public bool DeletePlayer(Player player)
     {
-        if (_useLiteDb)
+        if (UseLiteDb)
         {
             var result = _liteDbController.Database.GetCollection<Player>()
                 .DeleteMany(x => x.Port == player.Port && x.UserId == player.UserId);
@@ -50,7 +50,7 @@ public class GenericDatabaseManager
     public IEnumerable<Player> GetPlayers(int port, bool getUserIds = true)
     {
         IEnumerable<Player> players;
-        if (_useLiteDb)
+        if (UseLiteDb)
             players = _liteDbController.Database.GetCollection<Player>().FindAll();
         else
         {

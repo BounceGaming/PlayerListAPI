@@ -35,6 +35,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+if (!app.Services.GetService<GenericDatabaseManager>()!.UseLiteDb)
+    app.Services.GetService<MySqlController>()!.CreateDatabase();
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
