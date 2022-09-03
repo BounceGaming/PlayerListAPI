@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AVQd547LPTXzjzj6Rx6J3QBAPMsA25vc0H6qhbhvbgURFGec1KyJnecIPALnnix0JxdSg7eDujUZMZ47nDWhIg==",
+  "dgSpecHash": "qmPTLiM3V92Ma4oPIUaoDIvmKYlpBuBPgCYM/+7cvQKhwBwvQGLctfDxBoK8IbH3c/qB36RJiIIRTNyjnhdCeg==",
   "success": true,
   "projectFilePath": "C:\\Users\\roger\\RiderProjects\\PlayerList\\PlayerList.API\\PlayerList.API.csproj",
   "expectedPackageFiles": [
@@ -20,11 +20,7 @@
     "C:\\Users\\roger\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.0.0\\swashbuckle.aspnetcore.swagger.6.0.0.nupkg.sha512",
     "C:\\Users\\roger\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.0.0\\swashbuckle.aspnetcore.swaggergen.6.0.0.nupkg.sha512",
     "C:\\Users\\roger\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.0.0\\swashbuckle.aspnetcore.swaggerui.6.0.0.nupkg.sha512",
-    "C:\\Users\\roger\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
-    "C:\\Users\\roger\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.6\\microsoft.netcore.app.runtime.win-x86.6.0.6.nupkg.sha512",
-    "C:\\Users\\roger\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.6\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.6.nupkg.sha512",
-    "C:\\Users\\roger\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.6\\microsoft.aspnetcore.app.runtime.win-x86.6.0.6.nupkg.sha512",
-    "C:\\Users\\roger\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.6\\microsoft.netcore.app.crossgen2.win-x64.6.0.6.nupkg.sha512"
+    "C:\\Users\\roger\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512"
   ],
   "logs": []
 }

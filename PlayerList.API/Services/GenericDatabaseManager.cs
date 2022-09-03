@@ -10,13 +10,14 @@ public class GenericDatabaseManager
     private readonly MySqlController _mySqlController;
     private readonly bool _useLiteDb;
 
-    public GenericDatabaseManager(LiteDbController liteDbController, MySqlController mySqlController, IConfiguration configuration)
+    public GenericDatabaseManager(LiteDbController liteDbController, MySqlController mySqlController,
+        IConfiguration configuration)
     {
         _liteDbController = liteDbController;
         _mySqlController = mySqlController;
         _useLiteDb = configuration["Db:Method"] == "LiteDB";
     }
-    
+
     public bool AddPlayer(Player player)
     {
         if (_useLiteDb)
@@ -27,6 +28,7 @@ public class GenericDatabaseManager
             _liteDbController.Database.Checkpoint();
             return true;
         }
+
         using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
         return db.Insert(player) > 0;
     }
@@ -35,29 +37,35 @@ public class GenericDatabaseManager
     {
         if (_useLiteDb)
         {
-            var result = _liteDbController.Database.GetCollection<Player>().DeleteMany(x => x.Port == player.Port && x.UserId == player.UserId);
+            var result = _liteDbController.Database.GetCollection<Player>()
+                .DeleteMany(x => x.Port == player.Port && x.UserId == player.UserId);
             _liteDbController.Database.Checkpoint();
             return result > 0;
         }
+
         using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
         return db.Delete(player) > 0;
     }
 
-    public IEnumerable<Player> GetPlayers(bool getUserIds = true)
+    public IEnumerable<Player> GetPlayers(int port, bool getUserIds = true)
     {
         IEnumerable<Player> players;
-        if(_useLiteDb)
+        if (_useLiteDb)
             players = _liteDbController.Database.GetCollection<Player>().FindAll();
         else
         {
             using var db = new MySqlDataConnection(_mySqlController.ConnectionString);
             players = db.GetTable<Player>().AsEnumerable();
         }
+
         foreach (var player in players)
         {
-            if(!getUserIds)
+            if (!getUserIds)
                 player.UserId = null;
-            yield return player;
+            if (port == 0)
+                yield return player;
+            if (player.Port == port)
+                yield return player;
         }
     }
 }
