@@ -1,6 +1,6 @@
 # PlayerListAPI
 Gives a new way to get your server's player list in real time, better in most cases than using Northwood's API.
-
+ 
 # Use cases
 You can use this solution for:
 - Discord Bots
