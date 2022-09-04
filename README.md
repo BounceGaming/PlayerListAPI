@@ -1,4 +1,8 @@
 [![Github All Releases](https://img.shields.io/github/downloads/BounceGaming/PlayerListAPI/total?color=blueviolet&style=for-the-badge)]()
+[![Support Server](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/sNVPCKjR7U)
+[![Support Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/BounceGamingES)
+
+
 # PlayerListAPI
 Gives a new way to get your server's player list in real time, better in most cases than using Northwood's API.
  
